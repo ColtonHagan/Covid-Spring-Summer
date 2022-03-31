@@ -1,0 +1,2 @@
+rootProject.name = "DotAI"
+include ':app'

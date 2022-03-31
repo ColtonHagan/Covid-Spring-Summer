@@ -1,7 +1,8 @@
 //Solves given sudoku if possible, no gui/interface, works
+//Add gui latter/learn java gui/switch to javascript
 public class SolveSudoku {
    public static void main(String[] args) { 
-      int[][] sudoku = { {0, 6, 2, 0, 1, 0, 0, 8, 0},
+      int[][] easySudoku = { {0, 6, 2, 0, 1, 0, 0, 8, 0},
                          {1, 8, 0, 6, 0, 0, 4, 0, 9},
                          {0, 3, 0, 2, 5, 8, 7, 0, 1},
                          {5, 0, 8, 0, 6, 7, 9, 0, 0},
@@ -11,8 +12,18 @@ public class SolveSudoku {
                          {0, 0, 4, 5, 8, 0, 0, 1, 7}, 
                          {8, 5, 0, 7, 0, 6, 2, 0, 0} };
                          
-      if (solve(sudoku)) {
-         printMatrix(sudoku);
+      int[][] hardSudoku = { {8, 0, 0, 0, 0, 0, 0, 0, 0},
+                           {0, 0, 3, 6, 0, 0, 0, 0, 0},
+                           {0, 7, 0, 0, 9, 0, 2, 0, 0},
+                           {0, 5, 0, 0, 0, 7, 0, 0, 0},
+                           {0, 0, 0, 0, 4, 5, 7, 0, 0},
+                           {0, 0, 0, 1, 0, 0, 0, 3, 0},
+                           {0, 0, 1, 0, 0, 0, 0, 6, 8},
+                           {0, 0, 8, 5, 0, 0, 0, 1, 0},
+                           {0, 9, 0, 0, 0, 0, 4, 0, 0} };             
+                         
+      if (solve(hardSudoku)) {
+         printMatrix(hardSudoku);
       } else {
          System.out.println("No possible solution");
       }
@@ -39,7 +50,7 @@ public class SolveSudoku {
       return true;
    }
    
-   //solves the thing
+   //Solves the thing
    public static boolean solve (int[][] sudoku) {
       //Find first 0/empty value cords
       int y = -1;
@@ -52,6 +63,7 @@ public class SolveSudoku {
             }
          }
       }
+      
       //If there are no spots left, everything is then filled in :)
       if (x == -1) {
          return true;
@@ -79,6 +91,5 @@ public class SolveSudoku {
          }
          System.out.println();
       }
-      System.out.println();
    }
 }
